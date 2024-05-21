@@ -9,3 +9,8 @@ This script generates random DNA sequences with equal proportions for each nucle
 2. nuc_repetition_filtering.py
 ```
 This script gets a FASTA file as input and filters out sequences that contain any 3N (AAA, TTT, GGG, or CCC) repetition. 
+
+```
+FASTQ_to_FASTA.py
+```
+This script converts FASTQ files to FASTA files. 
