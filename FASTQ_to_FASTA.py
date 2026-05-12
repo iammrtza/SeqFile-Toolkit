@@ -8,7 +8,7 @@ def fastq_to_fasta():
     script = sys.argv[0]
     input_f = sys.argv[1]
 
-    # Open the input FASTQ file, handling gzip compression
+    # Open the input FASTQ file, handle gzip compression
     with gzip.open(input_f, 'rt') as Fastq:
         # Parse the FASTQ file and process each record
         for record in SeqIO.parse(Fastq, 'fastq'):
