@@ -1,4 +1,4 @@
-In this repository, I share Python codes that handle FATSQ/FASTA files in super custom ways.
+This repository shares Python codes that handle FATSQ/FASTA files in super custom ways.
 
 ```
 1. Random_Seq_Generator.py
