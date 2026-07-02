@@ -1,38 +1,13 @@
-#!/usr/bin/python3
-
-###
-#This script removes sequences containing repeated nucleotides (GGG, AAA, TTT, CCC) from a FASTA file.
-###
+#!/usr/bin/env python3
+"""Backward-compatible wrapper for homopolymer filtering."""
 
 import sys
-from Bio import SeqIO
+from pathlib import Path
 
-def remove_seqs():
-    """
-    Function to remove sequences containing repeated nucleotides.
-    """
-    script = sys.argv[0]  # Path of the script
-    file_name = sys.argv[1]  # Input FASTA file name
+sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
-    # Define nucleotide repetition conditions
-    Condition_A = 'AAA'
-    Condition_T = 'TTT'
-    Condition_C = 'CCC'
-    Condition_G = 'GGG'
+from seqfile_toolkit.cli import main
 
-    # Open the input FASTA file
-    with open(file_name, "r") as fasta:
-        # Iterate over each sequence in the file
-        for record in SeqIO.parse(fasta, "fasta"):
-            # Check if any of the nucleotide repetitions are present in the sequence
-            if Condition_A not in record.seq and \
-                Condition_T not in record.seq and \
-                Condition_C not in record.seq and \
-                Condition_G not in record.seq:
-                # Print the sequence ID and sequence itself if no repetitions are found
-                print('>' + record.id)
-                print(record.seq)
 
-if __name__ == '__main__':
-    remove_seqs()
-
+if __name__ == "__main__":
+    raise SystemExit(main(["filter-repeats", *sys.argv[1:]]))
